@@ -1,5 +1,5 @@
 let React      = require('react');
-let ReactTHREE = require('react-three');
+let ReactTHREE = require('../../../react-three');
 let THREE      = require('three');
 
 let VREffect = require('../utils/VREffect');

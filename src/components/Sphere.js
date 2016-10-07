@@ -1,6 +1,6 @@
 let React      = require('react');
 let THREE      = require('three');
-let ReactTHREE = require('react-three');
+let ReactTHREE = require('../../../react-three');
 
 class Sphere extends React.Component {
   render() {
