@@ -9,7 +9,7 @@
  *
  */
 
-import { PerspectiveCamera, PerspectiveCamera, Matrix4} from 'three';
+import { PerspectiveCamera, Matrix4 } from 'three';
 
 export default function VREffect(renderers, onError) {
     const _renderer = {};
@@ -21,9 +21,9 @@ export default function VREffect(renderers, onError) {
     let eyeFOVR;
 
     function gotVRDevices(devices) {
-        for (const i = 0; i < devices.length; i ++) {
+        for (let i = 0; i < devices.length; i++) {
             //if (devices[ i ] instanceof HMDVRDevice) {
-            vrHMD = devices[ i ];
+            vrHMD = devices[i];
 
             if (vrHMD.getEyeParameters !== undefined) {
 

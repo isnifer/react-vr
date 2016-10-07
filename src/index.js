@@ -1,4 +1,3 @@
-export Scene from './components/Scene';
-export KeyboardCamera from './components/KeyboardCamera';
-export Sphere from './components/Sphere';
-export ReactTHREE from '../../react-three';
+export VRScene from './components/VRScene';
+export VRKeyboardCamera from './components/VRKeyboardCamera';
+export VRSphere from './components/VRSphere';
