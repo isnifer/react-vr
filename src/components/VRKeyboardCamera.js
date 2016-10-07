@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import THREE from 'three';
+import { Euler, Vector3, Math} from 'three';
 import { PerspectiveCamera } from '../../../react-three';
 
 const acceleration = 6500;
@@ -9,20 +9,20 @@ const adAxis = 'x';
 const wsInverted = false;
 const adInverted = false;
 const MAX_DELTA = 0.2;
-const direction = new THREE.Vector3(0, 0, 0);
-const rotation = new THREE.Euler(0, 0, 0, 'YXZ');
+const direction = new Vector3(0, 0, 0);
+const rotation = new Euler(0, 0, 0, 'YXZ');
 
 export default class VRKeyboardCamera extends Component {
     loopState = {
         prevTime: window.performance.now(),
         keys: {},
-        velocity: new THREE.Vector3(),
+        velocity: new Vector3(),
     }
 
     state = {
-        cameraPosition: new THREE.Vector3(0,0,600),
-        // cameraRotation: new THREE.Euler(0,0,0),
-        lookat: new THREE.Vector3(0,0,0),
+        cameraPosition: new Vector3(0,0,600),
+        // cameraRotation: new Euler(0,0,0),
+        lookat: new Vector3(0,0,0),
     }
 
     onKeyDown = event => {
@@ -71,10 +71,13 @@ export default class VRKeyboardCamera extends Component {
     getMovementVector(delta, velocity, elRotation, fly) {
         direction.copy(velocity);
         direction.multiplyScalar(delta);
-        if (!elRotation) { return direction; }
-        if (!fly) { elRotation.x = 0; }
-        rotation.set(THREE.Math.degToRad(elRotation.x),
-                     THREE.Math.degToRad(elRotation.y), 0);
+        if (!elRotation) {
+            return direction;
+        }
+        if (!fly) {
+            elRotation.x = 0;
+        }
+        rotation.set(Math.degToRad(elRotation.x), Math.degToRad(elRotation.y), 0);
         direction.applyEuler(rotation);
         return direction;
     }
