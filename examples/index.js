@@ -1,16 +1,16 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
-import { BoxGeometry, ImageUtils, MeshBasicMaterial, Vector3, Quaternion} from 'three';
+import { BoxGeometry, TextureLoader, MeshBasicMaterial, Vector3, Quaternion} from 'three';
 import { Object3D, Mesh, AmbientLight, PointLight } from '../react-three/src/ReactTHREE';
 import { VRScene, VRKeyboardCamera, VRSphere } from '../src/index';
 
 const assetpath = filename => `assets/${filename}`;
 const boxgeometry = new BoxGeometry(200,200,200);
-const cupcaketexture = ImageUtils.loadTexture( assetpath('cupCake.png') );
-const cupcakematerial = new MeshBasicMaterial( { map: cupcaketexture } );
+const cupcaketexture = new TextureLoader().load(assetpath('cupCake.png'));
+const cupcakematerial = new MeshBasicMaterial({map: cupcaketexture});
 
-const creamtexture  = ImageUtils.loadTexture( assetpath('creamPink.png') );
-const creammaterial = new MeshBasicMaterial( { map: creamtexture } );
+const creamtexture = new TextureLoader().load(assetpath('creamPink.png'));
+const creammaterial = new MeshBasicMaterial({map: creamtexture});
 
 const w = window.innerWidth;
 const h = window.innerHeight;
