@@ -12,7 +12,7 @@ const MAX_DELTA = 0.2;
 const direction = new THREE.Vector3(0, 0, 0);
 const rotation = new THREE.Euler(0, 0, 0, 'YXZ');
 
-export default class KeyboardCamera extends Component {
+export default class VRKeyboardCamera extends Component {
     loopState = {
         prevTime: window.performance.now(),
         keys: {},
