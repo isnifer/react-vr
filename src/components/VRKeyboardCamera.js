@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Euler, Vector3, Math} from 'three';
-import { PerspectiveCamera } from '../../../react-three';
+import { PerspectiveCamera } from '../../../react-three/src/ReactTHREE';
 
 const acceleration = 6500;
 const easing = 4;
