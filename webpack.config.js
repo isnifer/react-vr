@@ -1,6 +1,8 @@
 const webpack = require('webpack');
 const path = require('path');
 
+const includeFolders = folders => folders.map(item => path.resolve(__dirname, item));
+
 module.exports = {
     devServer: {
         historyApiFallback: true,
@@ -11,7 +13,7 @@ module.exports = {
     entry: [
         'webpack/hot/dev-server',
         'webpack-dev-server/client?http://localhost:8080',
-        path.resolve(__dirname, 'examples/index.js')
+        path.resolve(__dirname, 'examples/index.js'),
     ],
     output: {
         path: __dirname + '/build',
@@ -24,7 +26,7 @@ module.exports = {
             {
                 test: /\.js$/,
                 exclude: /node_modules/,
-                include: ['./examples', './src', '../react-three'],
+                include: includeFolders(['./examples', './src', './react-three/src']),
                 loader: 'babel'
             },
         ],

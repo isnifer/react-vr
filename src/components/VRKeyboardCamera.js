@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Euler, Vector3, Math} from 'three';
-import { PerspectiveCamera } from '../../../react-three/src/ReactTHREE';
+import { PerspectiveCamera } from '../../react-three/src/ReactTHREE';
 
 const acceleration = 6500;
 const easing = 4;
@@ -35,7 +35,7 @@ export default class VRKeyboardCamera extends Component {
         keys[event.keyCode] = false;
     }
 
-    loop() {
+    loop = () => {
         const time = window.performance.now();
         const delta = (time - this.loopState.prevTime) / 1000;
         const adSign = adInverted ? -1 : 1;
@@ -68,7 +68,7 @@ export default class VRKeyboardCamera extends Component {
         this.setState({cameraPosition});
     }
 
-    getMovementVector(delta, velocity, elRotation, fly) {
+    getMovementVector = (delta, velocity, elRotation, fly) => {
         direction.copy(velocity);
         direction.multiplyScalar(delta);
         if (!elRotation) {

@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { SphereGeometry, MeshBasicMaterial, Vector3 } from 'three';
-import { Object3D, Mesh } from '../../../react-three';
+import { Object3D, Mesh } from '../../react-three/src/ReactTHREE';
 
-class VRSphere extends Component {
+export default class VRSphere extends Component {
     render() {
         const geometry = new SphereGeometry(100, 8);
         const material = new MeshBasicMaterial({color: 0xffff00});
@@ -14,5 +14,3 @@ class VRSphere extends Component {
         );
     }
 }
-
-module.exports = Sphere;

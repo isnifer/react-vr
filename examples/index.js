@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import { BoxGeometry, ImageUtils, MeshBasicMaterial, Vector3, Quaternion} from 'three';
-import { Object3D, Mesh, AmbientLight, PointLight } from '../../react-three';
-import { Scene, KeyboardCamera, Sphere } from '../src/index';
+import { Object3D, Mesh, AmbientLight, PointLight } from '../react-three/src/ReactTHREE';
+import { VRScene, VRKeyboardCamera, VRSphere } from '../src/index';
 
 const assetpath = filename => `assets/${filename}`;
 const boxgeometry = new BoxGeometry(200,200,200);
@@ -85,13 +85,13 @@ class App extends React.Component {
         };
 
         return (
-            <Scene renderVR={this.state.renderVR} width={w} height={h} camera="maincamera">
-                <KeyboardCamera width={w} height={h} name="maincamera" />
+            <VRScene renderVR={this.state.renderVR} width={w} height={h} camera="maincamera">
+                <VRKeyboardCamera width={w} height={h} name="maincamera" />
                 <AmbientLight color={0xffffff} />
                 <PointLight />
-                <Sphere {...cupcakeProps} />
-                <Sphere {...cupcakeProps} position={this.state.cupcakePosition} />
-            </Scene>
+                <VRSphere {...cupcakeProps} />
+                <VRSphere {...cupcakeProps} position={this.state.cupcakePosition} />
+            </VRScene>
         );
     }
 }

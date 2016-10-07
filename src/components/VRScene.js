@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Scene } from '../../../react-three';
+import { Scene } from '../../react-three/src/ReactTHREE';
 import THREE from 'three';
 import VREffect from '../utils/VREffect';
 
